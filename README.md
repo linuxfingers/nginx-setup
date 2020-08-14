@@ -38,7 +38,7 @@ Notes to remember setting up a Linode with CentOS 8 using NGINX
 # server blocks (for multiple domains on one server)
 
 11. make directory where websites will be hosted
-    - **sudo mkdir -p /var/www/<domain>/html**
+    - **sudo mkdir -p /var/www/<domain>/**
 12. assign ownership to current user
     - **sudo chown -R $USER:$USER /var/www/<domain>/**
 13. make test html page
