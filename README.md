@@ -6,9 +6,9 @@ Notes to remember setting up a Linode with CentOS 8 using NGINX
 1. Build CentOS 8 on Linode
 2. Perform updates
 3. Set up altuser & add to wheel
-    - adduser <altuser>
-    - passwd <altuser>
-    - usermad -aG wheel <altuser>
+    - **adduser *altuser* **
+    - **passwd *altuser* **
+    - **usermad -aG wheel *<altuser>* **
     *check that user was added successful with *id <altuser>* command
 4. Disable root ssh:
     - *vim /etc/ssh/sshd_config*
