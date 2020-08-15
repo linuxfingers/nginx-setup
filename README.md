@@ -55,31 +55,27 @@ Notes to remember setting up a Linode with CentOS 8 using NGINX
     </html>
 14. make new server block for your domain
     - **sudo vim /etc/nginx/conf.d/<domain>.conf**
-    
-    server {
+
+server {
         listen 80;
-        listen [::]:80;
-
-        root /var/www/<domain>/html;
-        index index.html index.htm index.nginx-debian.html;
-
-        server_name <domain> <www.domain>;
+        server_name domain.org www.domain.org;
 
         location / {
-                try_files $uri $uri/ =404;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header Host $http_host;
+                proxy_pass http://localhost:8080; //unique port number per node
         }
-    }
+}
+
 15. test for syntax errors
     - **sudo nginx -t**
-
-        nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
-        nginx: configuration file /etc/nginx/nginx.conf test is successful
-
+        *nginx: the configuration file /etc/nginx/nginx.conf syntax is ok*
+        *nginx: configuration file /etc/nginx/nginx.conf test is successful*
 16. restart nginx
     - **sudo systemctl restart nginx**
-17. Run getenforce to see if selinux is enforcing
+17. run getenforce to see if selinux is enforcing
     - **getenforce**
-18. If the result is Enforcing, run the following command to make selinux allow outgoing http connections
+18. if the result is Enforcing, run the following command to make selinux allow outgoing http connections
     - **setsebool -P httpd_can_network_connect true**
 
 
