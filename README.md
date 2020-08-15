@@ -77,8 +77,10 @@ Notes to remember setting up a Linode with CentOS 8 using NGINX
 
 16. restart nginx
     - **sudo systemctl restart nginx**
-17. update SELinux security context to serve files through new directory
-    - **chcon -vR system_u:object_r:httpd_sys_content_t:s0 /var/www/<domain>/**
+17. Run getenforce to see if selinux is enforcing
+    - **getenforce**
+18. If the result is Enforcing, run the following command to make selinux allow outgoing http connections
+    - **setsebool -P httpd_can_network_connect true**
 
 
 
