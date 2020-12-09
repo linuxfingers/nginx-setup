@@ -1,5 +1,4 @@
 # How to set up NGINX on a CentOS Linode 
-# (or whatever you're into)
 
 *Anything in <brackets> replace with your own info, sans brackets.*
     
