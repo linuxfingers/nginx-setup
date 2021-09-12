@@ -1,6 +1,6 @@
 # How to set up NGINX on a CentOS Linode 
 
-*Anything in <brackets> replace with your own info, sans brackets.*
+*Anything in brackets replace with your own info*
     
 # init
 
