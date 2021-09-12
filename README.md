@@ -1,6 +1,6 @@
 # How to set up NGINX on a CentOS Linode 
 
-*Anything in brackets replace with your own info*
+*Anything in [brackets] replace with your own info*
     
 # init
 
@@ -8,15 +8,15 @@
 2. Perform updates
     - **dnf update -y && dnf upgrade -y**
 3. Set up altuser & add to wheel
-    - **adduser <altuser>**
-    - **passwd <altuser>**
-    - **usermad -aG wheel <altuser>**
-    *check that user was added successful with **id <altuser>** command
+    - **adduser [altuser]**
+    - **passwd [altuser]**
+    - **usermad -aG wheel [altuser]**
+    *check that user was added successful with **id [altuser]** command
 4. Disable root ssh:
     - **vim /etc/ssh/sshd_config**
     - under "Authentication" change PermitRootLogin from yes to no
     - **service sshd restart**
-5. logout root and ssh via <altuser>
+5. logout root and ssh via [altuser]
 
 # nginx
 
@@ -37,24 +37,16 @@
 # server blocks (for multiple domains on one server)
 
 11. make directory where websites will be hosted
-    - **sudo mkdir -p /var/www/<domain>/**
+    - **sudo mkdir -p /var/www/[domain]/**
 12. assign ownership to current user
-    - **sudo chown -R $USER:$USER /var/www/<domain>/**
-13. make test html page
-    - **vi/var/www/<domain>index.html**
-    
-    <html>
-        <head>
-            <title>NGINX Test Page</title>
-        </head>
-        <body>
-            <h1>NGINX Setup Successful</h1>
-                <p>Nice job, buddy.</p>
-        </body>
-    </html>
-14. make new server block for your domain
-    - **sudo vim /etc/nginx/conf.d/<domain>.conf**
+    - **sudo chown -R $USER:$USER /var/www/[domain]/**
+13. make test html page - copy from index.html in repo
+    - **vi/var/www/[domain]/index.html**
 
+14. make new server block for your domain
+    - **sudo vim /etc/nginx/conf.d/[domain].conf**
+
+<code>
 server {
         listen 80;
         server_name domain.org www.domain.org;
@@ -65,6 +57,7 @@ server {
                 proxy_pass http://localhost:8080; //unique port number per node
         }
 }
+</code>
 
 15. test for syntax errors
     - **sudo nginx -t**
