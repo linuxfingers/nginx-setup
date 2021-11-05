@@ -1,5 +1,4 @@
-# How to set up NGINX on a CentOS Linode 
-
+# nginx setup documentation
 *Anything in [brackets] replace with your own info*
     
 # init
