@@ -27,7 +27,7 @@
 7. enable and start nginx at boot
     - **sudo systemctl enable nginx**
     - **sudo systemctl start nginx**
-8. permanently enable hhtp on port 80 & 443
+8. permanently enable http on port 80 & 443
     - **sudo firewall-cmd --permanent --zone=public --add-service=http --add-service=https**
     - verify http is in *services* with **sudo firewall-cmd --list-services --zone=public**
 9. apply chages
