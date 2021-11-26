@@ -40,12 +40,13 @@
 12. assign ownership to current user
     - **sudo chown -R $USER:$USER /var/www/[domain]/**
 13. make test html page - copy from index.html in repo
-    - **vi/var/www/[domain]/index.html**
+    - **vi /var/www/[domain]/index.html**
 
 14. make new server block for your domain
     - **sudo vim /etc/nginx/conf.d/[domain].conf**
 
 <code>
+    
 server {
         listen 80;
         server_name domain.org www.domain.org;
@@ -56,6 +57,7 @@ server {
                 proxy_pass http://localhost:8080; //unique port number per node
         }
 }
+
 </code>
 
 15. test for syntax errors
