@@ -9,7 +9,7 @@
 3. Set up altuser & add to wheel
     - **adduser [altuser]**
     - **passwd [altuser]**
-    - **useradd -aG wheel [altuser]**
+    - **useradd -G wheel [altuser]**
     *check that user was added successful with **id [altuser]** command
 4. Disable root ssh:
     - **vim /etc/ssh/sshd_config**
