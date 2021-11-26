@@ -29,7 +29,7 @@
 8. permanently enable http on port 80 & 443
     - **sudo firewall-cmd --permanent --zone=public --add-service=http --add-service=https**
     - verify http is in *services* with **sudo firewall-cmd --list-services --zone=public**
-9. apply chages
+9. apply changes
     - **sudo firewall-cmd --reload**
 10. go to public IP to test if NGINX was successful
 
